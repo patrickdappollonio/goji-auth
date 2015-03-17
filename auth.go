@@ -114,5 +114,5 @@ func Auth(config AuthConfig) func(c *web.C, h http.Handler) http.Handler {
 
 func unauthorized(message, unauthorized string, w http.ResponseWriter) {
 	w.Header().Set("WWW-Authenticate", fmt.Sprintf(`Basic realm="%s"`, message))
-	http.Error(w, http.StatusText(http.StatusUnauthorized), http.StatusUnauthorized)
+	http.Error(w, unauthorized, http.StatusUnauthorized)
 }
