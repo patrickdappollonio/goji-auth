@@ -6,12 +6,12 @@ anyone with enough knowlegde could retrieve them easily), so it's important
 to put the website where you're going to use your password under an SSL
 connection to prevent eavesdropping.
 
-This package only works with the [Goji package](https://github.com/zenazn/goji)
+This package only works with the Goji package (https://github.com/zenazn/goji)
 and not plain `net/http`. There are several packages to use with a plain `net/http`
-setup. You could also use it with the [cji package](https://github.com/pressly/cji)
+setup. You could also use it with the cji package (https://github.com/pressly/cji)
 so you can mix and match it with your routes.
 
-Examples are provided in the [Github repository](https://github.com/patrickdappollonio/goji-auth).
+Examples are provided in the Github repository (https://github.com/patrickdappollonio/goji-auth).
 */
 package auth
 
