@@ -23,38 +23,38 @@ and a password, you could also change the Auth message presented by certain brow
 the user. 
 
 ```golang
-	// Short option, where the message is "Protected" 
-	// and the Error message is "Unauthorized"
-	a := auth.Auth(auth.WithUserPass("user", "pass"))
+// Short option, where the message is "Protected" 
+// and the Error message is "Unauthorized"
+a := auth.Auth(auth.WithUserPass("user", "pass"))
 
-	// Semi-short option where you can set-up the 
-	// Message prompted to the user is configurable
-	a = auth.Auth(auth.WithUserPassMessage("user", "pass", "This is a Custom Message"))
+// Semi-short option where you can set-up the 
+// Message prompted to the user is configurable
+a = auth.Auth(auth.WithUserPassMessage("user", "pass", "This is a Custom Message"))
 
-	// Last option is to fully personalize the
-	// data, like this...
-	a = auth.Auth(auth.AuthConfig{
-		Username: "user",
-		Password: "pass",
-		Message: "Admin Panel",
-		UnauthorizedMessage: "You're not authorized to log in",
-	})
+// Last option is to fully personalize the
+// data, like this...
+a = auth.Auth(auth.AuthConfig{
+	Username: "user",
+	Password: "pass",
+	Message: "Admin Panel",
+	UnauthorizedMessage: "You're not authorized to log in",
+})
 
-	// Later, on your code, you could pass it to the
-	// goji.Use() function
-	goji.Use(a)
+// Later, on your code, you could pass it to the
+// goji.Use() function
+goji.Use(a)
 ```
 
 ### Usage with plain Goji
 
 ```golang
-	goji.Use(auth.Auth(auth.WithUserPass("user", "pass")))
-	goji.Serve()
+goji.Use(auth.Auth(auth.WithUserPass("user", "pass")))
+goji.Serve()
 ```
 
 ### Usage with cji
 
 ```golang
-	authControl := auth.Auth(auth.WithUserPass("user", "pass"))
-	goji.Get("/", cji.Use(authControl).On(myhandler))
+authControl := auth.Auth(auth.WithUserPass("user", "pass"))
+goji.Get("/", cji.Use(authControl).On(myhandler))
 ```
