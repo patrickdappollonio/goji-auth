@@ -22,7 +22,7 @@ is to use the longer version with a custom configuration, which, along with an u
 and a password, you could also change the Auth message presented by certain browsers to 
 the user. 
 
-```golang
+```go
 // Short option, where the message is "Protected" 
 // and the Error message is "Unauthorized"
 a := auth.Auth(auth.WithUserPass("user", "pass"))
@@ -47,14 +47,14 @@ goji.Use(a)
 
 ### Usage with plain Goji
 
-```golang
+```go
 goji.Use(auth.Auth(auth.WithUserPass("user", "pass")))
 goji.Serve()
 ```
 
 ### Usage with cji
 
-```golang
+```go
 authControl := auth.Auth(auth.WithUserPass("user", "pass"))
 goji.Get("/", cji.Use(authControl).On(myhandler))
 ```
