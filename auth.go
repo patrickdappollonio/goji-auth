@@ -103,9 +103,10 @@ func Auth(config AuthConfig) func(c *web.C, h http.Handler) http.Handler {
 
 				unauthorized(config.Message, config.UnauthorizedMessage, w)
 				return
-			} else {
-				unauthorized(config.Message, config.UnauthorizedMessage, w)
 			}
+
+			unauthorized(config.Message, config.UnauthorizedMessage, w)
+			return
 		}
 
 		return http.HandlerFunc(fn)
